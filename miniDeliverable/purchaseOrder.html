@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Purchase Order</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="purchaseOrder.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>GPC Purchase Order</h1>
+  <p>Fill out the form below and click the submit button to generate a QR Code.</p> 
+</div>
+
+<!--Form for purchase order-->
+<form action="javascript:generateQR()">
+
+<!--Purchase Order Number-->
+<div class="form-group">
+    <label for="purchaseNo">Purchase Order Number:</label>
+    <input type="number" class="form-control" id="purchaseNo" placeholder="634">
+</div>
+
+<!--Date-->
+<div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control" id="date">
+</div>
+
+<!--Vendor Name-->
+<div class="form-group">
+    <label for="vendorName">Vendor Name:</label>
+    <input type="input" class="form-control" id="vendorName" placeholder="Acme Supplies INC.">
+</div>
+
+<!--Vendor-->
+<!--Contact Person-->
+<div class="form-group">
+    <label for="contact1">Contact Person:</label>
+    <input type="input" class="form-control" id="contact1" placeholder="Richard M. Jones">
+</div>
+<!--Street Address-->
+<div class="form-group">
+    <label for="address1">Street Address:</label>
+    <input type="text" class="form-control" id="address1" placeholder="596, Grant Road">
+</div>
+<!--City-->
+<div class="form-group">
+    <label for="city1">City:</label>
+    <input type="text" class="form-control" id="city1" placeholder="Boston">
+</div>
+<!--State-->
+<div class="form-group">
+    <label for="state1">State:</label>
+    <input type="email" class="form-control" id="state1" placeholder="MA">
+</div>
+<!--Zip Code-->
+<div class="form-group">
+    <label for="zip1">Zip Code:</label>
+    <input type="text" class="form-control" id="zip1" placeholder="46225">
+</div>
+<!--Phone-->
+<div class="form-group">
+    <label for="phone1">Phone Number:</label>
+    <input type="text" class="form-control" id="phone1" placeholder="555-555-555">
+</div>
+<!--Email-->
+<div class="form-group">
+    <label for="email1">Email address:</label>
+    <input type="email" class="form-control" id="email1" placeholder="support@acmesup.org">
+</div>
+
+<!--Ship To-->
+<!--Contact Person-->
+<div class="form-group">
+    <label for="contact2">Contact Person:</label>
+    <input type="text" class="form-control" id="contact2" placeholder="David Jones">
+</div>
+<!--Street Address-->
+<div class="form-group">
+    <label for="address2">Street Address:</label>
+    <input type="text" class="form-control" id="address2" placeholder="500, East Main St.">
+</div>
+<!--City-->
+<div class="form-group">
+    <label for="city2">City:</label>
+    <input type="text" class="form-control" id="city2" placeholder="Branford">
+</div>
+<!--State-->
+<div class="form-group">
+    <label for="state">State:</label>
+    <input type="text" class="form-control" id="state" placeholder="CT">
+</div>
+<!--Zip Code-->
+<div class="form-group">
+    <label for="zip2">Zip Code:</label>
+    <input type="text" class="form-control" id="zip2" placeholder="6405">
+</div>
+<!--Phone-->
+<div class="form-group">
+    <label for="phone2">Phone Number:</label>
+    <input type="text" class="form-control" id="phone2" placeholder="777-777-7777">
+</div>
+<!--Email-->
+<div class="form-group">
+    <label for="email2">Email address:</label>
+    <input type="email" class="form-control" id="email2" placeholder="info@chhosp.com">
+</div>
+
+<!--Shipping-->
+<!--Ship via-->
+<div class="form-group">
+    <label for="shipVia">Ship Via:</label>
+    <input type="text" class="form-control" id="shipVia" placeholder="Bestway">
+</div>
+<!--Shipping Method-->
+<div class="form-group">
+    <label for="shippingMethod">Shipping Method:</label>
+    <input type="text" class="form-control" id="shippingMethod" placeholder="UPS">
+</div>
+<!--Shipping Terms-->
+<div class="form-group">
+    <label for="shippingTerms">Shipping Terms:</label>
+    <input type="text" class="form-control" id="shippingTerms" placeholder="Next 30 days">
+</div>
+<!--Delivery Date-->
+<div class="form-group">
+    <label for="delivDate">Delivery Date:</label>
+    <input type="date" class="form-control" id="delivDate">
+</div>
+
+<!--Order input table-->
+<table>
+    <tr>
+        <th>Item ID.</th>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <!--need 20 rows-->
+    <!--row 1-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="RDLPD1" id="id1"></td>
+        <td><input type="text" class="form-control" placeholder="Carrots" id="item1"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc1"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity1"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number1"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total1"></td>
+    </tr>
+    <!--row 2-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="LM5NM3" id="id2"></td>
+        <td><input type="text" class="form-control" placeholder="Onions" id="item2"></td>
+        <td><input type="text" class="form-control" placeholder="Red onions" id="desc2"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity2"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number2"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total2"></td>
+    </tr>
+    <!--row 3-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="OVAI23" id="id3"></td>
+        <td><input type="text" class="form-control" placeholder="Lettuce" id="item3"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc3"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity3"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number3"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total3"></td>
+    </tr>
+    <!--row 4-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="QXGMND" id="id4"></td>
+        <td><input type="text" class="form-control" placeholder="Zucchini" id="item4"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in TN" id="desc4"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity4"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number4"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total4"></td>
+    </tr>
+    <!--row 5-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="WKT56H" id="id5"></td>
+        <td><input type="text" class="form-control" placeholder="Mushrooms" id="item5"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc5"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity5"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number5"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total5"></td>
+    </tr>
+    <!--row 6-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="5MD1JL" id="id6"></td>
+        <td><input type="text" class="form-control" placeholder="Radishes" id="item6"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc6"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity6"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number6"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total6"></td>
+    </tr>
+    <!--row 7-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="S68V2X" id="id7"></td>
+        <td><input type="text" class="form-control" placeholder="Tomatoes" id="item7"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in SC" id="desc7"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity7"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number7"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total7"></td>
+    </tr>
+    <!--row 8-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="87DL8D" id="id8"></td>
+        <td><input type="text" class="form-control" placeholder="Cucumbers" id="item8"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NY" id="desc8"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity8"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number8"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total8"></td>
+    </tr>
+    <!--row 9-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="URA1UN" id="id9"></td>
+        <td><input type="text" class="form-control" placeholder="Squash" id="item9"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in MN" id="desc9"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity9"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number9"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total9"></td>
+    </tr>
+    <!--row 10-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="XBVR93" id="id10"></td>
+        <td><input type="text" class="form-control" placeholder="Sweet Potatoes" id="item10"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc10"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity10"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number10"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total10"></td>
+    </tr>
+    <!--row 11-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="4LUWHN" id="id11"></td>
+        <td><input type="text" class="form-control" placeholder="Eggplants" id="item11"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc11"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity11"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number11"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total11"></td>
+    </tr>
+    <!--row 12-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="6RR5N1" id="id12"></td>
+        <td><input type="text" class="form-control" placeholder="Strawberries" id="item12"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc12"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity12"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number12"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total12"></td>
+    </tr>
+    <!--row 13-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="81JHJW" id="id13"></td>
+        <td><input type="text" class="form-control" placeholder="Bell Peppers" id="item13"></td>
+        <td><input type="text" class="form-control" placeholder="Red Bell Peppers" id="desc13"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity13"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number13"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total13"></td>
+    </tr>
+    <!--row 14-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="5XY4D8" id="id14"></td>
+        <td><input type="text" class="form-control" placeholder="Broccoli" id="item14"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc14"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity14"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number14"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total14"></td>
+    </tr>
+    <!--row 15-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="1KHP5E" id="id15"></td>
+        <td><input type="text" class="form-control" placeholder="Corn" id="item15"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in IN" id="desc15"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity15"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number15"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total15"></td>
+    </tr>
+    <!--row 16-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="F2RM2C" id="id16"></td>
+        <td><input type="text" class="form-control" placeholder="Watermelon" id="item16"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc16"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity16"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number16"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total16"></td>
+    </tr>
+    <!--row 17-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="Z72IX5" id="id17"></td>
+        <td><input type="text" class="form-control" placeholder="Avocado" id="item17"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in CA" id="desc17"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity17"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number17"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total17"></td>
+    </tr>
+    <!--row 18-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="80H9DO" id="id18"></td>
+        <td><input type="text" class="form-control" placeholder="Oranges" id="item18"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc18"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity18"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number18"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total18"></td>
+    </tr>
+    <!--row 19-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="QZ0K4V" id="id19"></td>
+        <td><input type="text" class="form-control" placeholder="Apples" id="item19"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in NY" id="desc19"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity19"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number19"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total19"></td>
+    </tr>
+    <!--row 20-->
+    <tr> 
+        <td><input type="text" class="form-control" placeholder="RJKG6R" id="id20"></td>
+        <td><input type="text" class="form-control" placeholder="Blueberries" id="item20"></td>
+        <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc20"></td>
+        <td><input type="number" class="form-control" placeholder="20" id="quantity20"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number20"/></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total20"></td>
+    </tr>
+</table>
+
+<!--Notes and Instructions-->
+<div class="input-group">
+    <div class="input-group-prepend">
+        <label for="notesInstructions">Notes and Instructions:</label>
+    </div>
+    <textarea class="form-control" aria-label="Notes and Instructions--" rows="10" cols="100" id="notesInstructions"
+    placeholder=" 1. Please mention purchase order number in the invoice.
+    2. All deliveries to be made to the shipping address mentioned above.
+    3. We reserve the right to reject goods that are not in good order or condition as determined by our quality control.
+    4. Goods to be delivered within 15 days from date of PO."></textarea>
+  </div>
+
+<!--Sub Total-->
+<!--Discount-->
+<div class="form-group">
+    <label for="discount">Discount:</label>
+    <input type="number" min="0.01" step="0.01" max="2500" placeholder="150.00" id="discount"/></div>
+<!--Sales Tax %-->
+<div class="form-group">
+    <label for="tax">Sales Tax%:</label>
+    <input type="number" min="0.01" step="0.01" max="2500" placeholder="5.00" id="tax"/></div>
+<!--Shipping-->
+<div class="form-group">
+    <label for="phone2">Shipping:</label>
+    <input type="number" min="0.01" step="0.01" max="2500" placeholder="29.99" id="shipping"/></div>
+<!--Grand Total-->
+<!--Sign above-->
+
+<!--Thank you-->
+<h5>Thank you for choosing us to do your business.</h5>
+<!--Submit button-->
+<button type="submit" id="data" class="btn btn-default">Submit</button>
+</form> 
+
+<!--<input type="submit" id="data" onclick="generateQR()">-->
+<div id="qrcode"></div>
+</body>
+
+<!--Script tags-->
+<script src="qrcode.min.js"></script>
+<script src="purchaseOrder.js"></script>
+
+</html>
