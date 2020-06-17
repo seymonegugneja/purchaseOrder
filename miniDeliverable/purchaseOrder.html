@@ -1,147 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Purchase Order</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="purchaseOrder.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+    /*Color for header*/
+    .jumbotron {
+        background-image: url("header.jpg");
+        background-color: #cccccc;
+        background-position: center;
+        background-size: 500px 500px;
+        padding: 35px;
+        color: #ffffff;
+    }
+    .card-title {
+        background-color: tomato;
+        color: #ffffff;
+    }
+</style>
+
 <body>
 
 <div class="jumbotron text-center">
   <h1>GPC Purchase Order</h1>
-  <p>Fill out the form below and click the submit button to generate a QR Code.</p> 
+   
 </div>
 
 <!--Form for purchase order-->
 <form action="javascript:generateQR()">
 
-<!--Purchase Order Number-->
-<div class="form-group">
-    <label for="purchaseNo">Purchase Order Number:</label>
-    <input type="number" class="form-control" id="purchaseNo" placeholder="634">
-</div>
+<!--Purchase Order Number and date-->
+<div class="container-fluid">
+    <!--Purchase order-->
+    <div class="col-sm-6">
+        <h4 class="card-title" for="purchaseNo">Purchase Order Number:</label>
+        <input type="number" class="form-control" id="purchaseNo" placeholder="634">
+    </div>
 
-<!--Date-->
-<div class="form-group">
-    <label for="date">Date:</label>
-    <input type="date" class="form-control" id="date">
+    <!--Date-->
+    <div class="col-sm-6">
+        <h4 class="card-title" for="date">Date:</label>
+        <input type="date" class="form-control" id="date">
+    </div>
 </div>
-
+<br><br>
 <!--Vendor Name-->
-<div class="form-group">
-    <label for="vendorName">Vendor Name:</label>
+<div class="container-fluid">
+    <h4 class="card-title" for="vendorName">Vendor Name:</label>
     <input type="input" class="form-control" id="vendorName" placeholder="Acme Supplies INC.">
 </div>
 
+<br><br>
+
 <!--Vendor-->
 <!--Contact Person-->
-<div class="form-group">
-    <label for="contact1">Contact Person:</label>
-    <input type="input" class="form-control" id="contact1" placeholder="Richard M. Jones">
+<div class="container-fluid">
+    <div class="card-columns d-flex justify-content-center">
+        <div class="card">
+        <div class="card-block">
+        <h4 class="card-title">Vendor</h4>
+        <div class="card p-3">
+            <label for="contact1">Contact Person:</label>
+            <input type="input" class="form-control" id="contact1" placeholder="Richard M. Jones">
+        </div>
+        <!--Street Address-->
+        <div class="card p-3">
+            <label for="address1">Street Address:</label>
+            <input type="text" class="form-control" id="address1" placeholder="596, Grant Road">
+        </div>
+        <!--City-->
+        <div class="card p-3">
+            <label for="city1">City:</label>
+            <input type="text" class="form-control" id="city1" placeholder="Boston">
+        </div>
+        <!--State-->
+        <div class="card p-3">
+            <label for="state1">State:</label>
+            <input type="email" class="form-control" id="state1" placeholder="MA">
+        </div>
+        <!--Zip Code-->
+        <div class="card p-3">
+            <label for="zip1">Zip Code:</label>
+            <input type="text" class="form-control" id="zip1" placeholder="46225">
+        </div>
+        <!--Phone-->
+        <div class="card p-3">
+            <label for="phone1">Phone Number:</label>
+            <input type="text" class="form-control" id="phone1" placeholder="555-555-555">
+        </div>
+        <!--Email-->
+        <div class="card p-3">
+            <label for="email1">Email address:</label>
+            <input type="email" class="form-control" id="email1" placeholder="support@acmesup.org">
+        </div>
 </div>
-<!--Street Address-->
-<div class="form-group">
-    <label for="address1">Street Address:</label>
-    <input type="text" class="form-control" id="address1" placeholder="596, Grant Road">
 </div>
-<!--City-->
-<div class="form-group">
-    <label for="city1">City:</label>
-    <input type="text" class="form-control" id="city1" placeholder="Boston">
 </div>
-<!--State-->
-<div class="form-group">
-    <label for="state1">State:</label>
-    <input type="email" class="form-control" id="state1" placeholder="MA">
 </div>
-<!--Zip Code-->
-<div class="form-group">
-    <label for="zip1">Zip Code:</label>
-    <input type="text" class="form-control" id="zip1" placeholder="46225">
-</div>
-<!--Phone-->
-<div class="form-group">
-    <label for="phone1">Phone Number:</label>
-    <input type="text" class="form-control" id="phone1" placeholder="555-555-555">
-</div>
-<!--Email-->
-<div class="form-group">
-    <label for="email1">Email address:</label>
-    <input type="email" class="form-control" id="email1" placeholder="support@acmesup.org">
-</div>
-
+<br>
 <!--Ship To-->
 <!--Contact Person-->
-<div class="form-group">
-    <label for="contact2">Contact Person:</label>
-    <input type="text" class="form-control" id="contact2" placeholder="David Jones">
+<div class="container-fluid">
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-block">
+            <h4 class="card-title">Ship To</h4>
+            <div class="card p-3">
+            <label for="contact2">Contact Person:</label>
+            <input type="text" class="form-control" id="contact2" placeholder="David Jones">
+        </div>
+    <!--Street Address-->
+    <div class="card p-3">
+        <label for="address2">Street Address:</label>
+        <input type="text" class="form-control" id="address2" placeholder="500, East Main St.">
+    </div>
+    <!--City-->
+    <div class="card p-3">
+        <label for="city2">City:</label>
+        <input type="text" class="form-control" id="city2" placeholder="Branford">
+    </div>
+    <!--State-->
+    <div class="card p-3">
+        <label for="state">State:</label>
+        <input type="text" class="form-control" id="state" placeholder="CT">
+    </div>
+    <!--Zip Code-->
+    <div class="card p-3">
+        <label for="zip2">Zip Code:</label>
+        <input type="text" class="form-control" id="zip2" placeholder="6405">
+    </div>
+    <!--Phone-->
+    <div class="card p-3">
+        <label for="phone2">Phone Number:</label>
+        <input type="text" class="form-control" id="phone2" placeholder="777-777-7777">
+    </div>
+    <!--Email-->
+    <div class="card p-3">
+        <h4 for="email2">Email address:</label>
+        <input type="email" class="form-control" id="email2" placeholder="info@chhosp.com">
+    </div>
 </div>
-<!--Street Address-->
-<div class="form-group">
-    <label for="address2">Street Address:</label>
-    <input type="text" class="form-control" id="address2" placeholder="500, East Main St.">
 </div>
-<!--City-->
-<div class="form-group">
-    <label for="city2">City:</label>
-    <input type="text" class="form-control" id="city2" placeholder="Branford">
 </div>
-<!--State-->
-<div class="form-group">
-    <label for="state">State:</label>
-    <input type="text" class="form-control" id="state" placeholder="CT">
 </div>
-<!--Zip Code-->
-<div class="form-group">
-    <label for="zip2">Zip Code:</label>
-    <input type="text" class="form-control" id="zip2" placeholder="6405">
-</div>
-<!--Phone-->
-<div class="form-group">
-    <label for="phone2">Phone Number:</label>
-    <input type="text" class="form-control" id="phone2" placeholder="777-777-7777">
-</div>
-<!--Email-->
-<div class="form-group">
-    <label for="email2">Email address:</label>
-    <input type="email" class="form-control" id="email2" placeholder="info@chhosp.com">
-</div>
-
+<br><br>
 <!--Shipping-->
 <!--Ship via-->
-<div class="form-group">
-    <label for="shipVia">Ship Via:</label>
-    <input type="text" class="form-control" id="shipVia" placeholder="Bestway">
+<div class="container-fluid">
+    <div class="card">
+    <div class="col-sm-3">
+        <h4 class="card-title" for="shipVia">Ship Via:</label>
+        <input type="text" class="form-control" id="shipVia" placeholder="Bestway">
+    </div>
+    <!--Shipping Method-->
+    <div class="col-sm-3">
+        <h4 class="card-title" for="shippingMethod">Shipping Method:</label>
+        <input type="text" class="form-control" id="shippingMethod" placeholder="UPS">
+    </div>
+    <!--Shipping Terms-->
+    <div class="col-sm-3">
+        <h4 class="card-title" for="shippingTerms">Shipping Terms:</label>
+        <input type="text" class="form-control" id="shippingTerms" placeholder="Next 30 days">
+    </div>
+    <!--Delivery Date-->
+    <div class="col-sm-3">
+        <h4 class="card-title" for="delivDate">Delivery Date:</label>
+        <input type="date" class="form-control" id="delivDate">
+    </div>
 </div>
-<!--Shipping Method-->
-<div class="form-group">
-    <label for="shippingMethod">Shipping Method:</label>
-    <input type="text" class="form-control" id="shippingMethod" placeholder="UPS">
-</div>
-<!--Shipping Terms-->
-<div class="form-group">
-    <label for="shippingTerms">Shipping Terms:</label>
-    <input type="text" class="form-control" id="shippingTerms" placeholder="Next 30 days">
-</div>
-<!--Delivery Date-->
-<div class="form-group">
-    <label for="delivDate">Delivery Date:</label>
-    <input type="date" class="form-control" id="delivDate">
 </div>
 
+<br><br>
 <!--Order input table-->
-<table>
-    <tr>
-        <th>Item ID.</th>
-        <th>Item</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
+<div class="container-fluid">
+    <div class="card">
+<table class="table">
+    <tr class="card-title">
+        <th><h4>Item ID.</h4></th>
+        <th><h4>Item</h4></th>
+        <th><h4>Description</h4></th>
+        <th><h4>Quantity</h4></th>
+        <th><h4>Price</h4></th>
+        <th><h4>Total</h4></th>
     </tr>
     <!--need 20 rows-->
     <!--row 1-->
@@ -151,7 +198,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc1"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity1"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number1"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total1"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total1"></td>
     </tr>
     <!--row 2-->
     <tr> 
@@ -160,7 +207,7 @@
         <td><input type="text" class="form-control" placeholder="Red onions" id="desc2"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity2"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number2"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total2"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total2"></td>
     </tr>
     <!--row 3-->
     <tr> 
@@ -169,7 +216,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc3"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity3"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number3"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total3"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total3"></td>
     </tr>
     <!--row 4-->
     <tr> 
@@ -178,7 +225,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in TN" id="desc4"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity4"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number4"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total4"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total4"></td>
     </tr>
     <!--row 5-->
     <tr> 
@@ -187,7 +234,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc5"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity5"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number5"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total5"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total5"></td>
     </tr>
     <!--row 6-->
     <tr> 
@@ -196,7 +243,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc6"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity6"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number6"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total6"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total6"></td>
     </tr>
     <!--row 7-->
     <tr> 
@@ -205,7 +252,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in SC" id="desc7"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity7"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number7"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total7"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total7"></td>
     </tr>
     <!--row 8-->
     <tr> 
@@ -214,7 +261,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NY" id="desc8"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity8"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number8"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total8"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total8"></td>
     </tr>
     <!--row 9-->
     <tr> 
@@ -223,7 +270,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in MN" id="desc9"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity9"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number9"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total9"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total9"></td>
     </tr>
     <!--row 10-->
     <tr> 
@@ -232,7 +279,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc10"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity10"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number10"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total10"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total10"></td>
     </tr>
     <!--row 11-->
     <tr> 
@@ -241,7 +288,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc11"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity11"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number11"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total11"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total11"></td>
     </tr>
     <!--row 12-->
     <tr> 
@@ -250,7 +297,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc12"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity12"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number12"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total12"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total12"></td>
     </tr>
     <!--row 13-->
     <tr> 
@@ -259,7 +306,7 @@
         <td><input type="text" class="form-control" placeholder="Red Bell Peppers" id="desc13"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity13"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number13"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total13"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total13"></td>
     </tr>
     <!--row 14-->
     <tr> 
@@ -268,7 +315,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NC" id="desc14"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity14"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number14"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total14"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total14"></td>
     </tr>
     <!--row 15-->
     <tr> 
@@ -277,7 +324,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in IN" id="desc15"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity15"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number15"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total15"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total15"></td>
     </tr>
     <!--row 16-->
     <tr> 
@@ -286,7 +333,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc16"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity16"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number16"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total16"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total16"></td>
     </tr>
     <!--row 17-->
     <tr> 
@@ -295,7 +342,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in CA" id="desc17"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity17"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number17"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total17"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total17"></td>
     </tr>
     <!--row 18-->
     <tr> 
@@ -304,7 +351,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in FL" id="desc18"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity18"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number18"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total18"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total18"></td>
     </tr>
     <!--row 19-->
     <tr> 
@@ -313,7 +360,7 @@
         <td><input type="text" class="form-control" placeholder="Grown in NY" id="desc19"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity19"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number19"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total19"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total19"></td>
     </tr>
     <!--row 20-->
     <tr> 
@@ -322,25 +369,33 @@
         <td><input type="text" class="form-control" placeholder="Grown in VA" id="desc20"></td>
         <td><input type="number" class="form-control" placeholder="20" id="quantity20"></td>
         <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="7.58" id="number20"/></td>
-        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" id="total20"></td>
+        <td><input type="number" min="0.01" step="0.01" max="2500" placeholder="151.60" name="subTotal" id="total20"></td>
     </tr>
 </table>
+</div>
+</div>
 
 <!--Notes and Instructions-->
-<div class="input-group">
-    <div class="input-group-prepend">
-        <label for="notesInstructions">Notes and Instructions:</label>
-    </div>
+<div class="container-fluid">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <h4 class="card-title" id="notesInstructions">Notes and Instructions:</label>
+                </div>
     <textarea class="form-control" aria-label="Notes and Instructions--" rows="10" cols="100" id="notesInstructions"
     placeholder=" 1. Please mention purchase order number in the invoice.
     2. All deliveries to be made to the shipping address mentioned above.
     3. We reserve the right to reject goods that are not in good order or condition as determined by our quality control.
     4. Goods to be delivered within 15 days from date of PO."></textarea>
   </div>
+</div>
+</div>
+
 <br><br>
 <!--Sub Total-->
 <div class="form-group">
-    <label for="subTotal">Sub Total:</label>
+    <label for="subTotal" id="subTot">Sub Total:</label>
 <!--Discount-->
 <div class="form-group">
     <label for="discount">Discount:</label>
@@ -354,14 +409,18 @@
     <label for="phone2">Shipping:</label>
     <input type="number" min="0.01" step="0.01" max="2500" placeholder="29.99" id="shipping"/></div>
 <!--Grand Total-->
-<br><br>
-<center>
+</div>
+<br><br><br><br>
+<div class="container-fluid">
+    <center>
 <!--Thank you-->
 <h5>Thank you for choosing us to do your business.</h5>
 <!--Submit button-->
 <button type="submit" id="data" class="btn btn-default">Submit</button>
-</form> 
 </center>
+</div>
+</form> 
+
 
 <!--<input type="submit" id="data" onclick="generateQR()">-->
 <div id="qrcode"></div>
