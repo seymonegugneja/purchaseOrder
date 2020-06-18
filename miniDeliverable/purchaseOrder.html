@@ -22,7 +22,6 @@
     }
     .card-title {
         background-color: tomato;
-        background-size: 50px 50px;
         color: #ffffff;
     }
 
@@ -30,13 +29,21 @@
         height: auto;
         width: auto;
     }
+
+    .btn{
+        background-color: tomato;
+        color: #ffffff;
+    }
+
+    body{
+        background-color: antiquewhite;
+    }
 </style>
 
 <body>
 
 <div class="jumbotron text-center">
   <h1>GPC Purchase Order</h1>
-   
 </div>
 
 <!--Form for purchase order-->
@@ -56,7 +63,8 @@
         <input type="date" class="form-control" id="date">
     </div>
 </div>
-<br><br>
+<br>
+<br>
 <!--Vendor Name-->
 <div class="container-fluid">
     <h4 class="card-title" for="vendorName">Vendor Name:</label>
@@ -383,7 +391,7 @@
 
 <!--Notes and Instructions-->
 <div class="container-fluid">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <div class="card">
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -399,30 +407,38 @@
 </div>
 
 <br><br>
+<div class="container-fluid">
+    <div class="col-sm-6">
+    <h4 class="card-title">Total</h4>
 <!--Sub Total-->
-<div class="form-group">
-    <label for="subTotal" id="subTot">Sub Total:</label>
+<div class="card">
+    <label for="subTotal" id="subTot">Sub Total:</label></div>
 <!--Discount-->
-<div class="form-group">
+<div class="card">
     <label for="discount">Discount:</label>
     <input type="number" min="0.01" step="0.01" max="2500" placeholder="150.00" id="discount"/></div>
 <!--Sales Tax %-->
-<div class="form-group">
+<div class="card">
     <label for="tax">Sales Tax%:</label>
-    <input type="number" min="0.01" step="0.01" max="2500" placeholder="5.00" id="tax"/></div>
+    <input type="number" min="0.01" step="0.01" max="2500" placeholder="7%" id="tax"/></div>
 <!--Shipping-->
-<div class="form-group">
+<div class="card">
     <label for="phone2">Shipping:</label>
     <input type="number" min="0.01" step="0.01" max="2500" placeholder="29.99" id="shipping"/></div>
 <!--Grand Total-->
+<div class="card">
+    <label for="grandTotal" id="grandTot">Grand Total:</label></div>
+
 </div>
-<br><br><br><br>
+</div>
+<br><br>
 <div class="container-fluid">
     <center>
 <!--Thank you-->
-<h5>Thank you for choosing us to do your business.</h5>
+<h3>Thank you for choosing us to do your business.</h3>
+<br>
 <!--Submit button-->
-<button type="submit" id="data" class="btn btn-default">Submit</button>
+<button type="submit" id="data" class="btn btn-primary btn-block">Submit</button>
 </center>
 </div>
 </form> 
