@@ -47,7 +47,6 @@
 </div>
 
 <!--Form for purchase order-->
-<form action="javascript:generateQR()">
 
 <!--Purchase Order Number and date-->
 <div class="container-fluid">
@@ -438,10 +437,12 @@
 <h3>Thank you for choosing us to do your business.</h3>
 <br>
 <!--Submit button-->
-<button type="submit" id="data" class="btn btn-primary btn-block">Submit</button>
+<div class="btn-group btn-group-lg">
+    <button type="submit" id="data" onclick="generateQR()" class="btn btn-large">Submit Information</button>
+    <button type="submit" id="save" class="btn btn-large">Save Information</button>
+</div>
 </center>
 </div>
-</form> 
 
 
 <!--<input type="submit" id="data" onclick="generateQR()">-->
