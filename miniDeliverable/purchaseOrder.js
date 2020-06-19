@@ -1,5 +1,4 @@
-//Sub total
-
+//saves data
 
 //generates QR Code
 var qrdata = document.getElementById("data");
@@ -10,17 +9,18 @@ function generateQR() {
 
     qrcode.makeCode(data);
 
+    //quantity * price
+
     //sub total
-    //doesn't work yet
-    function findTotal(){
-        var arr = document.getElementsByName('subTotal').value;
-        var tot=0;
-        for(var i=0;i<arr.length;i++){
-            if(parseInt(arr[i].value))
-                tot += parseInt(arr[i].value);
-        }
-        document.getElementById('subTot').value = tot;
+    //alert(document.getElementsByName("subTotal")[0].value);
+    var addTotals = [];
+    var addTotalsLen = addTotals.length;
+    for (var i = 0; i < addTotalsLen; i++) {
+        var userInput = document.getElementsByName("subTotal")[i].value;
+        addTotals.push(userInput);
     }
+    //alert(addTotals);
+   
     
 
 
