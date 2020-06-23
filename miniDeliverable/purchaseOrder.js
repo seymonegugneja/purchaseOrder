@@ -142,7 +142,7 @@ function submitInfo() {
         alert('Shipping via must be filled out.');
         return false;
     } else {
-        var shiplVal = shipValidate;
+        var shipVal = shipValidate;
     }
     //shipping method
     var smethodValidate = document.getElementById('shippingMethod').value;
@@ -648,14 +648,6 @@ function submitInfo() {
     } else {
         var tetotalVal = tetotalValidate;
     }
-    //notes and instructions
-    var niValidate = document.getElementById('notesInstructions').value;
-    if (!niValidate) {
-        alert('Notes and Instructions must be filled out.');
-        return false;
-    } else {
-        var niVal = niValidate;
-    }
     //shipping total
     var stotValidate = document.getElementById('sTotal').value;
     if (!stotValidate) {
@@ -698,8 +690,38 @@ function submitInfo() {
     }
     //opens and prints info to a new page
     var shippingLabel = window.open();
-    shippingLabel.document.write(purchaseNoVal);
-    shippingLabel.close();
+    shippingLabel.document.write('<title>GPC Shipping Label</title>');
+    //top right info
+    shippingLabel.document.write('<p>Shipping label created on: ' + Date() + '</p>');
+    shippingLabel.document.write('<p>Purchase Order Number: ' + purchaseNoVal + '</p>');
+    //vendor info
+    shippingLabel.document.write('<p> From: </p>')
+    shippingLabel.document.write('<p>' + vcpVal + '</p>');
+    shippingLabel.document.write('<p>' + vsaVal + '</p>');
+    shippingLabel.document.write('<p>' + vcityVal + ', ' + vstateVal + ' ' + vzipVal + '</p>');
+    //ship to info
+    shippingLabel.document.write('<p> Ship To: </p>')
+    shippingLabel.document.write('<p>' + scontactVal + '</p>');
+    shippingLabel.document.write('<p>' + saddressVal + '</p>');
+    shippingLabel.document.write('<p>' + scityVal + ', ' + sstateVal + ' ' + szipVal + '</p>');
+    //order
+    shippingLabel.document.write('<p> Order: </p>')
+    shippingLabel.document.write('<p>' + fquanVal + ', ' + fitemVal + '</p>');
+    shippingLabel.document.write('<p>' + squanVal + ', ' + sitemVal + '</p>');
+    shippingLabel.document.write('<p>' + thquanVal + ', ' + thitemVal + '</p>');
+    shippingLabel.document.write('<p>' + foquanVal + ', ' + foitemVal + '</p>');
+    shippingLabel.document.write('<p>' + fiquanVal + ', ' + fiitemVal + '</p>');
+    shippingLabel.document.write('<p>' + siquanVal + ', ' + siitemVal + '</p>');
+    shippingLabel.document.write('<p>' + sequanVal + ', ' + seitemVal + '</p>');
+    shippingLabel.document.write('<p>' + equanVal + ', ' + eitemVal + '</p>');
+    shippingLabel.document.write('<p>' + nquanVal + ', ' + nitemVal + '</p>');
+    shippingLabel.document.write('<p>' + tequanVal + ', ' + teitemVal + '</p>');
+    //ship via info
+    shippingLabel.document.write('<p>Ship Via: ' + shipVal + ', Shipping Method: ' + smethodVal + ', Shipping Terms: ' + stermsVal + ', Delivery Date: ' + sdateVal + '</p>');
+    //closes page and prints
+    shippingLabel.document.close();
+    shippingLabel.focus();
+    shippingLabel.print();
     //saves info
 
 }
