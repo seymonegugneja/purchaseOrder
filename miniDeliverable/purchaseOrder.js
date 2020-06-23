@@ -651,7 +651,7 @@ function submitInfo() {
     //notes and instructions
     var niValidate = document.getElementById('notesInstructions').value;
     if (!niValidate) {
-        alert('Total must be filled out.');
+        alert('Notes and Instructions must be filled out.');
         return false;
     } else {
         var niVal = niValidate;
@@ -659,7 +659,7 @@ function submitInfo() {
     //shipping total
     var stotValidate = document.getElementById('sTotal').value;
     if (!stotValidate) {
-        alert('Total must be filled out.');
+        alert('Shipping total must be filled out.');
         return false;
     } else {
         var stotVal = stotValidate;
@@ -667,7 +667,7 @@ function submitInfo() {
     //discount
     var disValidate = document.getElementById('discount').value;
     if (!disValidate) {
-        alert('Total must be filled out.');
+        alert('Discount must be filled out.');
         return false;
     } else {
         var disVal = disValidate;
@@ -675,7 +675,7 @@ function submitInfo() {
     //sales tax
     var taxValidate = document.getElementById('tax').value;
     if (!taxValidate) {
-        alert('Total must be filled out.');
+        alert('Sales tax must be filled out.');
         return false;
     } else {
         var taxVal = taxValidate;
@@ -683,7 +683,7 @@ function submitInfo() {
     //shipping
     var shValidate = document.getElementById('shipping').value;
     if (!shValidate) {
-        alert('Total must be filled out.');
+        alert('Shipping must be filled out.');
         return false;
     } else {
         var shVal = shValidate;
@@ -691,12 +691,13 @@ function submitInfo() {
     //grand total
     var gtValidate = document.getElementById('gTotal').value;
     if (!gtValidate) {
-        alert('Total must be filled out.');
+        alert('Grand total must be filled out.');
         return false;
     } else {
         var gtVal = gtValidate;
     }
     //opens and prints info to a new page
+    var shippingLabel = window.open();
     //saves info
 
 }
