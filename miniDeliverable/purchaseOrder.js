@@ -698,6 +698,8 @@ function submitInfo() {
     }
     //opens and prints info to a new page
     var shippingLabel = window.open();
+    shippingLabel.document.write(purchaseNoVal);
+    shippingLabel.close();
     //saves info
 
 }
