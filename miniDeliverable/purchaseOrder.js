@@ -719,9 +719,9 @@ function submitInfo() {
     //ship via info
     shippingLabel.document.write('<p>Ship Via: ' + shipVal + ', Shipping Method: ' + smethodVal + ', Shipping Terms: ' + stermsVal + ', Delivery Date: ' + sdateVal + '</p>');
     //closes page and prints
-    shippingLabel.document.close();
-    shippingLabel.focus();
-    shippingLabel.print();
+    shippingLabel.document.close(); //please don't touch this
+    shippingLabel.focus(); //please don't touch this
+    shippingLabel.print(); //please don't touch this. this is what makes the label print
     //saves info
 
 }
